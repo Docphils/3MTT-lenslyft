@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client"; // 👈 Notice the "/client"
+import App from "./App";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import {AuthProvider} from "./context/AuthContext";
+import {UserDataProvider} from "./context/userDataContext";
+import {SearchProvider} from "./context/SearchContext";
+import {FilterProvider} from "./context/FilterContext";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {
+    faStar as solidStar,
+    faStarHalfAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+// Call it at the end
+serviceWorkerRegistration.register();
+
+library.add(solidStar, faStarHalfAlt);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <AuthProvider>
+            <UserDataProvider>
+                <FilterProvider>
+                    <SearchProvider>
+                        <App />
+                    </SearchProvider>
+                </FilterProvider>
+            </UserDataProvider>
+        </AuthProvider>
+    </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
