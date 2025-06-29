@@ -1,70 +1,196 @@
-# Getting Started with Create React App
+**LensLyft - Movie Recommendation Web App**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+**LensLyft** is a full-stack movie recommendation web application built with:
 
-In the project directory, you can run:
+* **Backend:** Node.js, Express, MongoDB (Mongoose), JWT Authentication
+* **Frontend:** React, React Router, Axios, Tailwind CSS, PWA support
 
-### `npm start`
+It allows users to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Register, log in, and manage their profiles
+* Search and filter movies via the TMDb API
+* View detailed movie information, trailers, and cast
+* Save favorite movies and create custom watchlists
+* Rate and review movies
+* Follow/unfollow other users and view their activity
+* Install as a Progressive Web App (PWA) for offline usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **User Authentication**
 
-### `npm run build`
+   * Secure registration/login with hashed passwords (bcrypt)
+   * JWT token-based auth for protected API routes
+2. **Movie Discovery**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   * Search and filter by title, genre, release date
+   * Detailed movie pages with trailer embeds and cast
+   * On-demand backend caching of viewed movies
+3. **User Interactions**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   * Add/remove favorites
+   * Create, update, and view custom watchlists
+   * Rate and write reviews for movies
+4. **Social**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   * Follow/unfollow other users
+   * See followed users' favorites and reviews
+5. **PWA Support**
 
-### `npm run eject`
+   * Offline shell and asset caching with Workbox
+   * Installable manifest and splash screens
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Layer      | Technology                               |
+| ---------- | ---------------------------------------- |
+| Backend    | Node.js, Express, MongoDB (Mongoose)     |
+| Auth       | bcryptjs, JSON Web Tokens (JWT)          |
+| Caching    | Mongoose Movie cache, Workbox precaching |
+| Frontend   | React, React Router, Axios, Context API  |
+| Styling    | Tailwind CSS                             |
+| PWA        | service-worker via Workbox, manifest     |
+| Deployment | Render (API) & Netlify (Web)             |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+movie-app/
+├── backend/             # Express API
+│   ├── config/          # DB connection
+│   ├── controllers/     # Route logic
+│   ├── middleware/      # Auth & error handling
+│   ├── models/          # Mongoose schemas
+│   ├── routes/          # Express route definitions
+│   ├── utils/           # Recommendation engine
+│   ├── server.js        # App entry
+│   └── .env             # Environment variables
+├── frontend/            # React PWA frontend
+│   ├── public/
+│   │   ├── icons/       # PWA icons
+│   │   └── manifest.json|
+│   ├── src/
+│   │   ├── api/         # Axios instance
+│   │   ├── components/  # Reusable UI
+│   │   ├── context/     # Auth & user data
+│   │   ├── pages/       # Route-based views
+│   │   ├── serviceWorkerRegistration.js
+│   │   ├── App.js       # Routes
+│   │   └── index.js     # Entry + providers
+│   └── tailwind.config.js|
+├── README.md
+└── .gitignore
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Installation & Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Prerequisites
 
-### Analyzing the Bundle Size
+* Node.js (v16+)
+* npm
+* MongoDB instance or Atlas cluster
+* TMDb API key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. Backend Setup
 
-### Making a Progressive Web App
+```bash
+cd backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Create a `.env` in `backend/`:
 
-### Advanced Configuration
+   ```env
+   PORT=5000
+   MONGO_URI=<Your MongoDB URI>
+   JWT_SECRET=<Your JWT secret>
+   TMDB_API_KEY=<Your TMDb API key>
+   ```
+2. Start the server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+   npm run dev   # using nodemon
+   # or
+   npm start    # production
+   ```
 
-### Deployment
+API listens on `http://localhost:5000/api`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 2. Frontend Setup
 
-### `npm run build` fails to minify
+```bash
+cd frontend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Place PWA icons in `public/icons/`:
+
+   * `icon-192.png`
+   * `icon-512.png`
+2. Configure `public/manifest.json` with app metadata.
+3. Start development:
+
+   ```bash
+   npm start
+   ```
+
+---
+
+## Usage
+
+* Visit `http://localhost:3000`
+* Register a new account or log in
+* Search for movies, view details, and interact
+* Install the app via browser prompt (mobile or desktop)
+
+---
+
+## Deployment
+
+### Backend on Render
+
+1. Push `backend/` to GitHub
+2. Create a Render Web Service:
+
+   * Environment: Node
+   * Build: `npm install`
+   * Start: `npm start`
+   * Add env vars
+3. API URL appears as `https://<service>.onrender.com`
+
+### Frontend on Netlify
+
+1. Push `frontend/` to GitHub
+2. Create a Netlify site from Git
+3. Build command: `npm run build`
+4. Publish directory: `build`
+5. Add env var:
+
+   ```text
+   REACT_APP_API_BASE=https://<service>.onrender.com/api
+   ```
+
+---
+
+## Contributing
+
+1. Fork the repo
+2. Create a feature branch
+3. Commit changes
+4. Open a pull request
+
+---
+
+## License
+
+MIT © Docphils
