@@ -37,7 +37,7 @@ const Navbar = () => {
         if (tempQuery.trim() === "") {
             handleClear();
         }
-    }, [tempQuery]);
+    }, [tempQuery, handleClear]);
 
     const NavLink = ({to, children}) => (
         <Link
