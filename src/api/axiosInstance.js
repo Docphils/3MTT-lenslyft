@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://threemtt-lenslyft-api.onrender.com/api', // ✅ include /api
+    baseURL: process.env.REACT_APP_API_BASE || "http://localhost:5000/api",
 });
 
 instance.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
+    const token = localStorage.getItem("token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
 });
 
 export default instance;
