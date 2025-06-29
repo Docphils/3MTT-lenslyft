@@ -1,0 +1,4 @@
+[build]
+  base = "lenslyft"
+  publish = "lenslyft/build"
+  command = "npm run build"
