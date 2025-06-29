@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 const SocialPage = () => {
     const [followedUsers, setFollowedUsers] = useState([]);
     const [loading, setLoading] = useState(true);
-    const {user, authReady} = useContext(AuthContext);
+
 
     useEffect(() => {
         let isMounted = true;

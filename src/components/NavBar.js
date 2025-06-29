@@ -1,5 +1,5 @@
 import {Link, useNavigate, useLocation} from "react-router-dom";
-import {useContext, useState, useEffect} from "react";
+import {useContext, useState, useEffect, useCallback} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import AuthContext from "../context/AuthContext";
@@ -27,11 +27,11 @@ const Navbar = () => {
         }
     };
 
-    const handleClear = () => {
+    const handleClear = useCallback(() => {
         setTempQuery("");
         setQuery("");
         setResults([]);
-    };
+    }, [setQuery, setResults]);
 
     useEffect(() => {
         if (tempQuery.trim() === "") {
