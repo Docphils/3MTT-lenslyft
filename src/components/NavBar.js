@@ -143,7 +143,7 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <RouterNavLink to="/assistant" className={({ isActive }) => `text-sm ${isActive ? "bg-blue-600 text-white px-3 py-1 rounded" : "hover:underline"}`
+                <RouterNavLink to="/assistant" className={({ isActive }) => `text-sm font-semibold text-blue-50 ${isActive ? "bg-blue-600  px-3 py-1 rounded" : "hover:underline"}`
     } >  🎬 Ask LyftAI </RouterNavLink>
                     {location.pathname !== '/assistant' && (
                         <Link
