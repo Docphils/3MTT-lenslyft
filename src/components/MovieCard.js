@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Link} from "react-router-dom";
 
 const MovieCard = ({movie}) => {
@@ -22,9 +23,9 @@ const MovieCard = ({movie}) => {
                 </h3>
                 <div className="flex justify-between text-sm ">
                     <p className='text-gray-500'>{movie.release_date}</p>
-                    <icon className="fa-solid fa-star text-yellow-400 mr-1">
+                    <FontAwesomeIcon icon="fa-solid fa-star" className="text-yellow-400 mr-1">
                         <span className="text-gray-700">{(movie.vote_average / 2).toFixed(1)}</span>
-                    </icon>
+                    </FontAwesomeIcon>
                 </div>
             </div>
         </Link>
