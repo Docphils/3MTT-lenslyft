@@ -92,6 +92,7 @@ const Navbar = () => {
                     </button>
                 </form>
 
+
                 {/* Right: Menu links */}
                 <div
                     className={`md:flex md:items-center lg:gap-4 text-sm ${
@@ -104,16 +105,6 @@ const Navbar = () => {
                             <NavLink to='/favorites'>Favorites</NavLink>
                             <NavLink to='/social'>Connections</NavLink>
                             <NavLink to='/profile/edit'>Edit profile</NavLink>
-                            <NavLink to="/assistant" className="text-sm  hover:underline" >  🎬 Ask LyftAI </NavLink>
-                            {location.pathname !== '/assistant' && (
-                                <Link
-                                    to="/assistant"
-                                    className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-5 rounded-full shadow-lg z-50 hover:border-4 hover:border-blue-300"
-                                    title="Talk to Lyft AI"
-                                >
-                                    💬
-                                </Link>
-                                )}
                             <button
                                 onClick={() => {
                                     logout();
@@ -131,6 +122,17 @@ const Navbar = () => {
                         </>
                     )}
                 </div>
+
+                <NavLink to="/assistant" className="text-sm  hover:underline" >  🎬 Ask LyftAI </NavLink>
+                    {location.pathname !== '/assistant' && (
+                        <Link
+                            to="/assistant"
+                            className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-5 rounded-full shadow-lg z-50 hover:border-4 hover:border-blue-300"
+                            title="Talk to Lyft AI"
+                        >
+                            💬
+                        </Link>
+                        )}
             </div>
         </nav>
     );
