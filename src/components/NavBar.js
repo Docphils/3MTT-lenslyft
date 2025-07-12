@@ -17,13 +17,13 @@ const Navbar = () => {
     //background color set
     useEffect(() => {
         if (location.pathname === "/assistant") {
-            document.body.classList.add("bg-slate-900", "text-white");
+            document.body.classList.add("bg-slate-900");
         } else {
-            document.body.classList.remove("bg-slate-900", "text-white");
+            document.body.classList.remove("bg-slate-900");
         }
 
         return () => {
-            document.body.classList.remove("bg-slate-900", "text-white");
+            document.body.classList.remove("bg-slate-900");
         };
     }, [location.pathname]);
 
