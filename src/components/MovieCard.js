@@ -3,6 +3,12 @@ import {Link} from "react-router-dom";
 
 const MovieCard = ({movie}) => {
     const tmdbId = movie.tmdbId || movie.id; // Use this consistently
+    const rating =
+    typeof movie.vote_average === "number" && movie.vote_average > 0
+      ? (movie.vote_average / 2).toFixed(1)
+      : typeof movie.averageRating === "number"
+      ? (movie.averageRating / 2).toFixed(1)
+      : "N/A";
 
 
     return (
@@ -25,7 +31,7 @@ const MovieCard = ({movie}) => {
                     <p className='text-gray-500'>{movie.release_date || movie.releaseDate}</p>
                     <p className="flex text-yellow-500 items-center">
                         <FontAwesomeIcon icon="fa-solid fa-star" />
-                        <span className="text-gray-700">{(movie.vote_average / 2).toFixed(1) || (movie.averageRating / 2).toFixed(1)}</span>
+                        <span className="text-gray-700">{rating}</span>
                   
                     </p>
                 </div>
