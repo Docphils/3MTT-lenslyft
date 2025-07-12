@@ -23,9 +23,9 @@ const MovieCard = ({movie}) => {
                 </h3>
                 <div className="flex justify-between text-sm ">
                     <p className='text-gray-500'>{movie.release_date}</p>
-                    <FontAwesomeIcon icon="star" className="text-yellow-500 mr-1">
+                    <i className="fa-solid fa-star text-yellow-500 mr-1">
                         <span className="text-gray-700">{(movie.vote_average / 2).toFixed(1)}</span>
-                    </FontAwesomeIcon>
+                    </i>
                 </div>
             </div>
         </Link>
