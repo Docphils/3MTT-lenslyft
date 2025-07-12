@@ -123,7 +123,7 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <NavLink to="/assistant" className="text-sm  hover:underline" >  🎬 Ask LyftAI </NavLink>
+                <NavLink to="/assistant" className={location.pathname ==='/assistant' ? "text-sm  hover:underline bg-blue-600" : ""} >  🎬 Ask LyftAI </NavLink>
                     {location.pathname !== '/assistant' && (
                         <Link
                             to="/assistant"
