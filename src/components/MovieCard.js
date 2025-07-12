@@ -22,10 +22,10 @@ const MovieCard = ({movie}) => {
                     {movie.title || movie.name}
                 </h3>
                 <div className="flex justify-between text-sm items-center">
-                    <p className='text-gray-500'>{movie.release_date}</p>
+                    <p className='text-gray-500'>{movie.release_date || movie.releaseDate}</p>
                     <p className="flex text-yellow-500 items-center">
                         <FontAwesomeIcon icon="fa-solid fa-star" />
-                        <span className="text-gray-700">{(movie.vote_average / 2).toFixed(1)}</span>
+                        <span className="text-gray-700">{(movie.vote_average / 2).toFixed(1) || (movie.averageRating / 2).toFixed(1)}</span>
                   
                     </p>
                 </div>
