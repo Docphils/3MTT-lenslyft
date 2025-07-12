@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 
 const MovieCard = ({movie}) => {
     const tmdbId = movie.tmdbId || movie.id; // Use this consistently
+    console.log("MOVIE:", movie);
 
     return (
         <Link
@@ -17,7 +18,7 @@ const MovieCard = ({movie}) => {
             />
             <div className='p-2'>
                 <h3 className='font-semibold text-base truncate'>
-                    {movie.title}
+                    {movie.title || movie.name}
                 </h3>
                 <p className='text-sm text-gray-500'>{movie.release_date}</p>
             </div>
