@@ -50,7 +50,7 @@ export default function ChatAssistant() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 min-h-screen flex flex-col bg-gradient-to-r from-slate-700 to-zinc-900">
+    <div className="max-w-4xl mx-auto px-4 py-8 min-h-screen flex flex-col bg-slate-800">
       <h2 className="text-2xl font-semibold mb-4 text-center bg-blue-700 text-blue-50 px-4 py-2 rounded shadow">🎥 Lyft AI</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-y-auto  mb-4 text-white rounded-lg shadow p-4 border border-gray-200">
