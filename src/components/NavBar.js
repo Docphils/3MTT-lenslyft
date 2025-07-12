@@ -14,6 +14,20 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    //background color set
+    useEffect(() => {
+        if (location.pathname === "/assistant") {
+            document.body.classList.add("bg-slate-900", "text-white");
+        } else {
+            document.body.classList.remove("bg-slate-900", "text-white");
+        }
+
+        return () => {
+            document.body.classList.remove("bg-slate-900", "text-white");
+        };
+    }, [location.pathname]);
+
+
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!tempQuery.trim()) return;
@@ -51,6 +65,8 @@ const Navbar = () => {
         >
             {children}
         </RouterNavLink>
+
+        
     );
 
     return (

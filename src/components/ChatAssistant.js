@@ -63,7 +63,7 @@ export default function ChatAssistant() {
               className={`max-w-[75%] px-4 py-2 col-span-full rounded-xl ${
                 msg.type === 'user'
                   ? 'bg-blue-600 text-white self-end ml-auto'
-                  : 'bg-zinc-800 text-zinc-500 self-start mr-auto'
+                  : 'bg-zinc-800 text-zinc-100 self-start mr-auto'
               }`}
             >
               {msg.text}
