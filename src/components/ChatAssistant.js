@@ -50,10 +50,10 @@ export default function ChatAssistant() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 min-h-screen flex flex-col">
-      <h2 className="text-2xl font-semibold mb-4 text-center text-blue-700">🎥 Lyft AI</h2>
+    <div className="max-w-4xl mx-auto px-4 py-8 min-h-screen flex flex-col bg-gradient-to-r from-slate-700 to-zinc-900">
+      <h2 className="text-2xl font-semibold mb-4 text-center bg-blue-700 text-blue-50 px-4 py-2 rounded shadow">🎥 Lyft AI</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-y-auto  mb-4 bg-white rounded-lg shadow p-4 border border-gray-200">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 overflow-y-auto  mb-4 text-white rounded-lg shadow p-4 border border-gray-200">
         {messages.map((msg, idx) =>
           msg.type === 'movie' ? (
             <MovieCard key={idx} movie={msg.movie} />
@@ -63,7 +63,7 @@ export default function ChatAssistant() {
               className={`max-w-[75%] px-4 py-2 col-span-full rounded-xl ${
                 msg.type === 'user'
                   ? 'bg-blue-600 text-white self-end ml-auto'
-                  : 'bg-gray-100 text-gray-800 self-start mr-auto'
+                  : 'bg-zinc-800 text-zinc-500 self-start mr-auto'
               }`}
             >
               {msg.text}
@@ -71,7 +71,7 @@ export default function ChatAssistant() {
           )
         )}
         {loading && (
-          <div className="bg-gray-100 text-gray-800 px-4 py-2 rounded-xl self-start animate-pulse w-32">
+          <div className="bg-zinc-800 text-zinc-50 px-4 py-2 rounded-xl self-start animate-pulse w-32">
             Typing...
           </div>
         )}
