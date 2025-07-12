@@ -22,7 +22,7 @@ const RegisterPage = () => {
       login(res.data.user, res.data.token);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed');
+      setError(err.response?.data?.message || 'Registration failed' + err);
     }
   };
 

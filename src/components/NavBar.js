@@ -52,7 +52,7 @@ const Navbar = () => {
     return (
         <nav className='bg-blue-700 text-white px-4 py-3 shadow-md relative z-10'>
             {/* Top wrapper with logo, search, menu button */}
-            <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6'>
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4'>
                 {/* Left: Logo + Hamburger */}
                 <div className='flex justify-between items-center'>
                     <Link to='/' className='text-2xl font-bold'>
@@ -70,7 +70,7 @@ const Navbar = () => {
                 {/* Center: Search */}
                 <form
                     onSubmit={handleSearch}
-                    className='flex gap-2 flex-grow md:max-w-md md:flex-none'
+                    className='flex gap-2 flex-grow md:max-w-base md:flex-none'
                 >
                     <input
                         value={tempQuery}
@@ -94,7 +94,7 @@ const Navbar = () => {
 
                 {/* Right: Menu links */}
                 <div
-                    className={`md:flex md:items-center md:gap-4 text-sm ${
+                    className={`md:flex md:items-center lg:gap-4 text-sm ${
                         menuOpen ? "block" : "hidden md:flex"
                     }`}
                 >
@@ -104,6 +104,16 @@ const Navbar = () => {
                             <NavLink to='/favorites'>Favorites</NavLink>
                             <NavLink to='/social'>Connections</NavLink>
                             <NavLink to='/profile/edit'>Edit profile</NavLink>
+                            <NavLink to="/assistant" className="text-sm  hover:underline" >  🎬 Ask LyftAI </NavLink>
+                            {location.pathname !== '/assistant' && (
+                                <Link
+                                    to="/assistant"
+                                    className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-5 rounded-full shadow-lg z-50 hover:border-4 hover:border-blue-300"
+                                    title="Talk to Lyft AI"
+                                >
+                                    💬
+                                </Link>
+                                )}
                             <button
                                 onClick={() => {
                                     logout();

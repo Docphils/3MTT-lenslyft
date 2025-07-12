@@ -12,6 +12,7 @@ import Navbar from "./components/NavBar";
 import UserFavorites from "./pages/UserFavorites";
 import UserWatchlists from "./pages/UserWatchlists";
 import EditProfilePage from './pages/EditProfilePage';
+import ChatAssistant from "./components/ChatAssistant";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/login' element={<LoginPage />} />
                 <Route path='/register' element={<RegisterPage />} />
                 <Route path='/movie/:id' element={<MovieDetailPage />} />
+                <Route path="/assistant" element={<ChatAssistant />} />
                 <Route
                     path='/favorites'
                     element={
