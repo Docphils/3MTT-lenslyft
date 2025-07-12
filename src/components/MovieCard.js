@@ -24,6 +24,7 @@ const MovieCard = ({movie}) => {
                     <p className='text-gray-500'>{movie.release_date}</p>
                     <p className="flex">
                         <i className="fa-solid fa-star text-yellow-500 mr-1" />
+                        <FontAwesomeIcon icon={faStar} />
                         <span className="text-gray-700">{(movie.vote_average / 2).toFixed(1)}</span>
                   
                     </p>
