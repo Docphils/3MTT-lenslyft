@@ -1,4 +1,4 @@
-import {Link, useNavigate, useLocation} from "react-router-dom";
+import {Link, NavLink as RouterNavLink, useNavigate, useLocation} from "react-router-dom";
 import {useContext, useState, useEffect, useCallback} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
@@ -40,13 +40,17 @@ const Navbar = () => {
     }, [tempQuery, handleClear]);
 
     const NavLink = ({to, children}) => (
-        <Link
+        <RouterNavLink
             to={to}
-            className='px-3 py-2 rounded hover:bg-blue-600 transition duration-200'
             onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+                `px-3 py-2 rounded transition duration-200 ${
+                    isActive ? "bg-blue-600 font-semibold" : "hover:bg-blue-500"
+                }`
+            }
         >
             {children}
-        </Link>
+        </RouterNavLink>
     );
 
     return (
@@ -123,7 +127,8 @@ const Navbar = () => {
                     )}
                 </div>
 
-                <NavLink to="/assistant" className={location.pathname ==='/assistant' ? "text-sm  hover:underline bg-blue-600" : ""} >  🎬 Ask LyftAI </NavLink>
+                <RouterNavLink to="/assistant" className={({ isActive }) => `text-sm ${isActive ? "bg-blue-600 text-white px-3 py-1 rounded" : "hover:underline"}`
+    } >  🎬 Ask LyftAI </RouterNavLink>
                     {location.pathname !== '/assistant' && (
                         <Link
                             to="/assistant"
