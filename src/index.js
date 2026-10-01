@@ -15,7 +15,11 @@ import {
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 // Call it at the end
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.register({
+    onUpdate: (registration) => {
+        registration.waiting?.postMessage({ type: "SKIP_WAITING" });
+    },
+});
 
 library.add(solidStar, faStarHalfAlt);
 
