@@ -70,6 +70,7 @@ const HomePage = () => {
 
     return (
         <div className='p-4 max-w-7xl mx-auto'>
+            <h2 className='text-2xl font-bold mb-4'>Welcome to LensLyft - My name is Philip</h2>
             <MovieFilter />
             {query ? (
                 <>
